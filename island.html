@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ataraxis Grand & Spa — Social Media Management Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --lagoon: #1B7A72;
+  --lagoon-deep: #0F5C56;
+  --lagoon-glow: rgba(27,122,114,0.08);
+  --lagoon-mist: #E6F2F0;
+  --driftwood: #A89078;
+  --driftwood-light: #C4AD98;
+  --sand: #FAF7F2;
+  --sand-warm: #F3EDE4;
+  --sand-deep: #E8DFD2;
+  --ink: #2A2622;
+  --ink-soft: #5A5248;
+  --ink-faint: #8A8278;
+  --white: #FFFDF9;
+  --pure-white: #FFFFFF;
+  --coral-soft: #E8967A;
+  --coral-glow: rgba(232,150,122,0.12);
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.7;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background: url('island-life.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15,92,86,0.15) 0%,
+    rgba(15,92,86,0.05) 30%,
+    rgba(42,38,34,0.3) 70%,
+    rgba(42,38,34,0.85) 100%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--white), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 40px 100px;
+}
+
+.hero-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--driftwood-light);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: var(--pure-white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero h2 {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-scroll span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.hero-scroll .line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--driftwood-light), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ── Divider ── */
+.wave-divider {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.wave-divider svg {
+  width: 80px;
+  height: 16px;
+  opacity: 0.25;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.container-wide {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Sections ── */
+.section {
+  padding: 80px 0;
+}
+
+.section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--driftwood);
+  margin-bottom: 16px;
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.section h3 em {
+  font-style: italic;
+}
+
+.section p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+.section p + p {
+  margin-top: 16px;
+}
+
+/* ── Thin rule ── */
+.thin-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--driftwood-light);
+  margin: 64px auto;
+  opacity: 0.5;
+}
+
+/* ── Packages ── */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.package {
+  background: var(--sand);
+  border: 1px solid var(--sand-deep);
+  border-radius: 20px;
+  padding: 44px 32px 36px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.package:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(42,38,34,0.08);
+}
+
+.package.featured {
+  background: var(--lagoon-deep);
+  border-color: var(--lagoon-deep);
+  color: var(--pure-white);
+}
+
+.package.featured::before {
+  content: 'Recommended';
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--coral-soft);
+  color: var(--pure-white);
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.package-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.package.featured .package-name {
+  color: var(--pure-white);
+}
+
+.package-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--lagoon);
+  line-height: 1.2;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.package.featured .package-price {
+  color: var(--pure-white);
+}
+
+.package-price span {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-faint);
+  letter-spacing: 1px;
+}
+
+.package.featured .package-price span {
+  color: rgba(255,255,255,0.5);
+}
+
+.package-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--driftwood-light);
+  margin: 24px 0;
+  opacity: 0.6;
+}
+
+.package.featured .package-divider {
+  background: rgba(255,255,255,0.25);
+}
+
+.package ul {
+  list-style: none;
+  padding: 0;
+}
+
+.package li {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  padding: 9px 0;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.package.featured li {
+  color: rgba(255,255,255,0.8);
+}
+
+.package li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--driftwood-light);
+}
+
+.package.featured li::before {
+  background: var(--coral-soft);
+}
+
+/* ── Process ── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 56px;
+}
+
+.step {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--sand);
+  border-radius: 20px;
+  position: relative;
+}
+
+.step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--lagoon-glow);
+  margin-bottom: 24px;
+  border: 1px solid var(--lagoon-mist);
+}
+
+.step-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--lagoon);
+  stroke-width: 1.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.step h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--ink-faint);
+  line-height: 1.7;
+  max-width: 100%;
+  font-weight: 300;
+}
+
+/* ── Comparison Table ── */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 48px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--sand-deep);
+}
+
+.comparison-table thead {
+  background: var(--ink);
+}
+
+.comparison-table th {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.8);
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.comparison-table th:first-child {
+  text-align: left;
+  color: rgba(255,255,255,0.5);
+}
+
+.comparison-table th.featured-col {
+  background: var(--lagoon-deep);
+  color: var(--pure-white);
+}
+
+.comparison-table td {
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-align: center;
+  border-bottom: 1px solid var(--sand-deep);
+  letter-spacing: 0.01em;
+}
+
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.comparison-table td.featured-col {
+  background: var(--lagoon-glow);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--sand);
+}
+
+.comparison-table tbody tr:hover td.featured-col {
+  background: rgba(27,122,114,0.1);
+}
+
+.check {
+  color: var(--lagoon);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.dash {
+  color: var(--sand-deep);
+  font-size: 18px;
+}
+
+/* ── Advisory callout ── */
+.advisory-callout {
+  background: var(--sand);
+  border-radius: 20px;
+  padding: 40px 44px;
+  margin-top: 48px;
+  position: relative;
+  border: 1px solid var(--sand-deep);
+}
+
+.advisory-callout::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--lagoon), var(--driftwood-light));
+  border-radius: 2px;
+}
+
+.advisory-callout h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.advisory-callout p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+/* ── All tiers include ── */
+.included-note {
+  text-align: center;
+  margin-top: 36px;
+  padding: 24px 32px;
+  background: var(--lagoon-glow);
+  border-radius: 12px;
+  border: 1px solid var(--lagoon-mist);
+}
+
+.included-note p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-faint);
+  max-width: 100%;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.included-note strong {
+  color: var(--lagoon-deep);
+  font-weight: 500;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 80px 48px;
+  background: var(--ink);
+  color: var(--pure-white);
+  margin-top: 40px;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.footer h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.footer h3 em {
+  font-style: italic;
+}
+
+.footer p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  max-width: 100%;
+  letter-spacing: 0.02em;
+}
+
+.footer a {
+  color: var(--coral-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--driftwood-light);
+}
+
+.footer-links {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  margin: 0 16px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.footer-links a:hover {
+  color: var(--coral-soft);
+}
+
+/* ── Print / PDF ── */
+@media print {
+  .hero { height: auto; min-height: 400px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { padding: 48px 0; }
+  .packages { gap: 16px; }
+  .package { page-break-inside: avoid; }
+  .comparison-table { page-break-inside: avoid; }
+  .hero-scroll { display: none; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero { height: 80vh; min-height: 480px; }
+  .hero h1 { font-size: 42px; }
+  .hero-content { padding: 0 28px 80px; }
+  .container, .container-wide { padding: 0 28px; }
+  .packages { grid-template-columns: 1fr; gap: 20px; }
+  .process-steps { grid-template-columns: 1fr; gap: 20px; }
+  .section { padding: 56px 0; }
+  .section h3 { font-size: 32px; }
+  .comparison-table { font-size: 12px; }
+  .comparison-table th, .comparison-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Social Media Management Proposal</div>
+    <h1>Ataraxis Grand <em>&</em> Spa</h1>
+    <h2>Fuvahmulah, Maldives</h2>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="container">
+  <div class="wave-divider">
+    <svg viewBox="0 0 80 16">
+      <path d="M0 8c10-6 20-6 30 0s20 6 30 0 10-6 20 0" fill="none" stroke="#A89078" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Opportunity</div>
+    <h3>Your story deserves to be told <em>consistently</em></h3>
+    <p>Ataraxis sits on the only single-island atoll in the Maldives, with daily tiger shark encounters and a raw, anti-resort experience travellers are actively searching for. The content exists. What's missing is a consistent presence that turns it into bookings.</p>
+    <p>Below are three tiers of social media management, each including full strategy, implementation, and content edited from your existing content bank.</p>
+  </div>
+</div>
+
+<div class="thin-rule"></div>
+
+<!-- Packages -->
+<div class="container-wide">
+  <div class="section" style="padding-top: 0;">
+    <div class="section-label">Packages</div>
+    <h3>Choose what <em>fits</em></h3>
+
+    <div class="packages">
+      <!-- Essentials -->
+      <div class="package">
+        <div class="package-name">Essentials</div>
+        <div class="package-price">$1,000 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Full social strategy and implementation</li>
+          <li>Instagram + Facebook crossposting</li>
+          <li>2 feed posts per week</li>
+          <li>Content edited from your content bank (photo carousels, designed graphics, Reels)</li>
+          <li>Monthly performance snapshot</li>
+          <li>1-hour advisory session every 3 months</li>
+        </ul>
+      </div>
+
+      <!-- Growth -->
+      <div class="package featured">
+        <div class="package-name">Growth</div>
+        <div class="package-price">$1,250 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Everything in Essentials, plus:</li>
+          <li>3 feed posts per week</li>
+          <li>Stories 2x per week</li>
+          <li>Comment engagement</li>
+          <li>Competitor monitoring</li>
+          <li>Monthly performance snapshot</li>
+          <li>1-hour advisory session every 2 months</li>
+        </ul>
+      </div>
+
+      <!-- Full Service -->
+      <div class="package">
+        <div class="package-name">Full Service</div>
+        <div class="package-price">$1,500 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Everything in Growth, plus:</li>
+          <li>4 feed posts per week</li>
+          <li>Stories 3x per week + reposting shared stories</li>
+          <li>Full comment and DM engagement</li>
+          <li>Your choice of YouTube Shorts or Pinterest</li>
+          <li>1-hour advisory session every month</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="included-note">
+      <p><strong>All tiers include</strong> full social strategy and implementation, content editing from your content bank (photo carousels, designed posts, Reels), Instagram + Facebook crossposting, and a monthly performance snapshot.</p>
+    </div>
+  </div>
+</div>
+
+<div class="thin-rule"></div>
+
+<!-- Advisory -->
+<div class="container">
+  <div class="section" style="padding-top: 0;">
+    <div class="section-label">Advisory Sessions</div>
+    <h3>Beyond just <em>social media</em></h3>
+    <div class="advisory-callout">
+      <h4>1-Hour Advisory Sessions</h4>
+      <p>Advisory sessions go beyond social media. This is dedicated time to discuss brand direction, marketing strategy, and growth opportunities. Each session reviews performance data alongside your evolving goals to keep things moving in the right direction.</p>
+    </div>
+  </div>
+</div>
+
+<div class="thin-rule"></div>
+
+<!-- Process -->
+<div class="container-wide">
+  <div class="section" style="padding-top: 0;">
+    <div class="section-label">How It Works</div>
+    <h3>Simple, <em>hands-off</em> process</h3>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v2" opacity="0.4"/>
+            <path d="M12 19v2" opacity="0.4"/>
+            <path d="M3 12h2" opacity="0.4"/>
+            <path d="M19 12h2" opacity="0.4"/>
+            <path d="M16.2 7.8l-3 4.4-4.4 3 3-4.4z"/>
+          </svg>
+        </div>
+        <h4>Strategy</h4>
+        <p>I'll define your content pillars, posting schedule, and visual direction based on your brand and goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 3l4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+            <path d="M15 5l4 4" opacity="0.3"/>
+            <path d="M2 22c3-1 5-1 8 0s5 1 8 0" opacity="0.4"/>
+          </svg>
+        </div>
+        <h4>Create & Post</h4>
+        <p>Content is curated and edited from your content bank, then posted on schedule. You approve, or I handle it fully.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 16c4-1 7-1 10 0s6 1 10 0" opacity="0.35"/>
+            <circle cx="12" cy="11" r="4"/>
+            <line x1="12" y1="3" x2="12" y2="5"/>
+            <line x1="5.5" y1="7.5" x2="7" y2="9"/>
+            <line x1="18.5" y1="7.5" x2="17" y2="9"/>
+            <path d="M2 20c4-1.5 7-1.5 10 0s6 1.5 10 0" opacity="0.2"/>
+          </svg>
+        </div>
+        <h4>Review & Refine</h4>
+        <p>Advisory sessions review what's working, what's not, and where to adjust strategy based on real data.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="thin-rule"></div>
+
+<!-- Comparison Chart -->
+<div class="container-wide">
+  <div class="section" style="padding-top: 0;">
+    <div class="section-label">At a Glance</div>
+    <h3>Package <em>comparison</em></h3>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Essentials</th>
+          <th class="featured-col">Growth</th>
+          <th>Full Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly investment</td>
+          <td>$1,000</td>
+          <td class="featured-col"><strong>$1,250</strong></td>
+          <td>$1,500</td>
+        </tr>
+        <tr>
+          <td>Platforms</td>
+          <td>IG + FB</td>
+          <td class="featured-col">IG + FB</td>
+          <td>IG + FB + Shorts/Pinterest</td>
+        </tr>
+        <tr>
+          <td>Feed posts per week</td>
+          <td>2</td>
+          <td class="featured-col"><strong>3</strong></td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Stories</td>
+          <td><span class="dash">-</span></td>
+          <td class="featured-col">2x/week</td>
+          <td>3x/week + reposts</td>
+        </tr>
+        <tr>
+          <td>Comment engagement</td>
+          <td><span class="dash">-</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>DM engagement</td>
+          <td><span class="dash">-</span></td>
+          <td class="featured-col"><span class="dash">-</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Competitor monitoring</td>
+          <td><span class="dash">-</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Monthly performance snapshot</td>
+          <td><span class="check">&check;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Advisory session</td>
+          <td>Every 3 months</td>
+          <td class="featured-col">Every 2 months</td>
+          <td>Monthly</td>
+        </tr>
+        <tr>
+          <td>Content editing</td>
+          <td><span class="check">&check;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h3>Let's build something <em>beautiful</em></h3>
+  <p>Ready to get started? Let's find the right fit for Ataraxis.</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/callie.rounds">@callie.rounds</a>
+    <a href="mailto:caliroundspartnerships@gmail.com">caliroundspartnerships@gmail.com</a>
+  </div>
+</div>
+
+</body>
+</html>
