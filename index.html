@@ -625,16 +625,142 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .hero { height: auto; min-height: 360px; }
-  .hero h1 { font-size: 42px; }
-  .hero-content { padding: 0 28px 80px; }
-  .container, .container-wide { padding: 0 28px; }
-  .packages { grid-template-columns: 1fr; gap: 20px; }
-  .process-steps { grid-template-columns: 1fr; gap: 20px; }
-  .section { padding: 56px 0; }
-  .section h3 { font-size: 32px; }
-  .comparison-table { font-size: 12px; }
-  .comparison-table th, .comparison-table td { padding: 10px 12px; }
+  .hero { height: auto; min-height: 300px; }
+  .hero h1 { font-size: 36px; }
+  .hero h2 { font-size: 12px; letter-spacing: 3px; }
+  .hero-label { font-size: 9px; }
+  .hero-content { padding: 0 24px 48px; }
+  .hero::after { height: 80px; }
+
+  .container, .container-wide { padding: 0 20px; }
+  .section { padding: 32px 0; }
+  .section h3 { font-size: 26px; margin-bottom: 14px; }
+  .section p { font-size: 14px; line-height: 1.7; }
+  .section-label { font-size: 9px; margin-bottom: 10px; }
+
+  /* Kill gaps between sections */
+  .wave-divider { padding: 8px 0; }
+  .thin-rule { margin: 12px auto; }
+
+  /* Packages: carousel with arrows */
+  .packages {
+    grid-template-columns: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 0 28px 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .packages::-webkit-scrollbar { display: none; }
+  .package {
+    min-width: 72%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 28px 22px 24px;
+    border-radius: 16px;
+  }
+  .package-name { font-size: 20px; }
+  .package-price { font-size: 32px; }
+  .package li { font-size: 13px; padding: 6px 0 6px 18px; }
+  .package li::before { top: 13px; width: 5px; height: 5px; }
+  .package-divider { margin: 16px 0; }
+  .package.featured::before { font-size: 9px; padding: 4px 14px; }
+
+  .pkg-nav { display: flex !important; }
+
+  .included-note { margin-top: 20px; padding: 14px 16px; }
+  .included-note p { font-size: 12px; }
+
+  /* Process: horizontal too */
+  .process-steps {
+    grid-template-columns: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 12px;
+    margin-top: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .process-steps::-webkit-scrollbar { display: none; }
+  .step {
+    min-width: 72%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+  .step-icon { width: 56px; height: 56px; margin-bottom: 16px; }
+  .step-icon svg { width: 24px; height: 24px; }
+  .step h4 { font-size: 18px; margin-bottom: 8px; }
+  .step p { font-size: 13px; }
+
+  /* Advisory */
+  .advisory-callout { padding: 24px 20px; border-radius: 14px; margin-top: 24px; }
+  .advisory-callout h4 { font-size: 18px; }
+  .advisory-callout p { font-size: 13px; }
+
+  /* Comparison table */
+  .comparison-table { font-size: 11px; }
+  .comparison-table th, .comparison-table td { padding: 10px 10px; }
+
+  /* Footer */
+  .footer { padding: 48px 24px; margin-top: 28px; }
+  .footer h3 { font-size: 26px; }
+  .footer p { font-size: 13px; }
+  .footer-links { font-size: 12px; }
+  .footer-links a { display: block; margin: 6px 0; }
+}
+
+/* ── Carousel nav (mobile only) ── */
+.pkg-nav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pkg-nav button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--sand-deep);
+  background: var(--sand);
+  color: var(--ink-soft);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pkg-nav button:active {
+  background: var(--lagoon-mist);
+  border-color: var(--lagoon);
+}
+
+.pkg-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.pkg-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sand-deep);
+  transition: all 0.3s ease;
+}
+
+.pkg-dots span.active {
+  background: var(--lagoon);
+  width: 18px;
+  border-radius: 3px;
 }
 </style>
 </head>
@@ -721,6 +847,12 @@ body {
       </div>
     </div>
 
+    <div class="pkg-nav" id="pkgNav">
+      <button onclick="scrollCarousel('.packages', -1)">&#8249;</button>
+      <div class="pkg-dots" id="pkgDots"><span class="active"></span><span></span><span></span></div>
+      <button onclick="scrollCarousel('.packages', 1)">&#8250;</button>
+    </div>
+
     <div class="included-note">
       <p><strong>All tiers include</strong> full social strategy and implementation, content editing from your content bank (photo carousels, designed posts, Reels), Instagram + Facebook crossposting, and a monthly performance snapshot.</p>
     </div>
@@ -788,6 +920,12 @@ body {
         <h4>Review & Refine</h4>
         <p>Advisory sessions review what's working, what's not, and where to adjust strategy based on real data.</p>
       </div>
+    </div>
+
+    <div class="pkg-nav" id="stepNav">
+      <button onclick="scrollCarousel('.process-steps', -1)">&#8249;</button>
+      <div class="pkg-dots" id="stepDots"><span class="active"></span><span></span><span></span></div>
+      <button onclick="scrollCarousel('.process-steps', 1)">&#8250;</button>
     </div>
   </div>
 </div>
@@ -884,5 +1022,28 @@ body {
   </div>
 </div>
 
+<script>
+function scrollCarousel(selector, dir) {
+  const c = document.querySelector(selector);
+  const card = c.querySelector(':scope > *');
+  const w = card.offsetWidth + 12;
+  c.scrollBy({ left: dir * w, behavior: 'smooth' });
+}
+
+function trackDots(containerSel, dotsSel) {
+  const c = document.querySelector(containerSel);
+  const dots = document.querySelectorAll(dotsSel + ' span');
+  if (!c || !dots.length) return;
+  c.addEventListener('scroll', function() {
+    const card = c.querySelector(':scope > *');
+    const w = card.offsetWidth + 12;
+    const idx = Math.round(c.scrollLeft / w);
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  });
+}
+
+trackDots('.packages', '#pkgDots');
+trackDots('.process-steps', '#stepDots');
+</script>
 </body>
 </html>
