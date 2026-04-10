@@ -625,16 +625,96 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .hero { height: auto; min-height: 360px; }
-  .hero h1 { font-size: 42px; }
-  .hero-content { padding: 0 28px 80px; }
-  .container, .container-wide { padding: 0 28px; }
-  .packages { grid-template-columns: 1fr; gap: 20px; }
-  .process-steps { grid-template-columns: 1fr; gap: 20px; }
-  .section { padding: 56px 0; }
-  .section h3 { font-size: 32px; }
-  .comparison-table { font-size: 12px; }
-  .comparison-table th, .comparison-table td { padding: 10px 12px; }
+  .hero { height: auto; min-height: 320px; }
+  .hero h1 { font-size: 36px; }
+  .hero h2 { font-size: 12px; letter-spacing: 3px; }
+  .hero-label { font-size: 9px; letter-spacing: 4px; margin-bottom: 16px; }
+  .hero-content { padding: 0 24px 60px; }
+  .hero::after { height: 120px; }
+
+  .container, .container-wide { padding: 0 20px; }
+  .section { padding: 48px 0; }
+  .section h3 { font-size: 28px; margin-bottom: 16px; }
+  .section p { font-size: 15px; }
+  .section-label { font-size: 9px; letter-spacing: 4px; }
+  .thin-rule { margin: 40px auto; }
+  .wave-divider { padding: 32px 0; }
+
+  /* Packages: horizontal scroll, side-by-side cards */
+  .packages {
+    grid-template-columns: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin-top: 36px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .packages::-webkit-scrollbar { display: none; }
+
+  .package {
+    min-width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 32px 24px 28px;
+    border-radius: 16px;
+  }
+
+  .package-name { font-size: 22px; }
+  .package-price { font-size: 36px; }
+  .package li { font-size: 13px; padding: 7px 0 7px 18px; }
+  .package li::before { top: 14px; width: 5px; height: 5px; }
+
+  .included-note { margin-top: 24px; padding: 16px 20px; }
+  .included-note p { font-size: 12px; }
+
+  /* Process steps: horizontal scroll too */
+  .process-steps {
+    grid-template-columns: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin-top: 36px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .process-steps::-webkit-scrollbar { display: none; }
+
+  .step {
+    min-width: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .step-icon { width: 60px; height: 60px; margin-bottom: 16px; }
+  .step-icon svg { width: 26px; height: 26px; }
+  .step h4 { font-size: 20px; }
+  .step p { font-size: 13px; }
+
+  /* Advisory */
+  .advisory-callout { padding: 28px 24px; border-radius: 16px; margin-top: 32px; }
+  .advisory-callout h4 { font-size: 20px; }
+  .advisory-callout p { font-size: 14px; }
+
+  /* Comparison table: scrollable horizontally */
+  .comparison-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .comparison-table thead, .comparison-table tbody { min-width: 520px; }
+  .comparison-table th, .comparison-table td { padding: 10px 14px; white-space: nowrap; }
+  .comparison-table td:first-child, .comparison-table th:first-child { position: sticky; left: 0; background: var(--white); z-index: 1; }
+  .comparison-table thead th:first-child { background: var(--ink); }
+  .comparison-table tbody tr:hover td:first-child { background: var(--sand); }
+
+  /* Footer */
+  .footer { padding: 56px 24px; }
+  .footer h3 { font-size: 28px; }
+  .footer p { font-size: 13px; }
+  .footer-links { font-size: 12px; }
+  .footer-links a { display: block; margin: 8px 0; }
 }
 </style>
 </head>
