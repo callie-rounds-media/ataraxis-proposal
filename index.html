@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ataraxis Grand & Spa — Social Media Management Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #1A6B7A;
+  --ocean-light: #2A8A9A;
+  --ocean-pale: #E8F4F6;
+  --coral: #FF6B6B;
+  --coral-light: #FF8E8E;
+  --charcoal: #2D2D2D;
+  --charcoal-light: #4A4A4A;
+  --sand: #F8F6F3;
+  --sand-dark: #EDE9E3;
+  --white: #FFFFFF;
+  --slate: #6B7280;
+  --border: #E5E7EB;
+}
+
+body {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  background: var(--white);
+  color: var(--charcoal);
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  background: linear-gradient(180deg, rgba(26,107,122,0.85) 0%, rgba(26,107,122,0.6) 40%, rgba(45,45,45,0.9) 100%),
+              url('island-life.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 64px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--white), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--coral-light);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.5px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Sections ── */
+.section {
+  padding: 64px 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--ocean);
+  margin-bottom: 12px;
+}
+
+.section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.section p + p {
+  margin-top: 16px;
+}
+
+/* ── Packages ── */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.package {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 28px 32px;
+  position: relative;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.package:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border-color: var(--sand-dark);
+}
+
+.package.featured {
+  border-color: var(--ocean);
+  box-shadow: 0 4px 20px rgba(26,107,122,0.12);
+}
+
+.package.featured::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ocean);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.package-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.package-price {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ocean);
+  line-height: 1.2;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.package-price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--slate);
+}
+
+.package-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--coral);
+  margin: 20px 0;
+  border-radius: 2px;
+}
+
+.package ul {
+  list-style: none;
+  padding: 0;
+}
+
+.package li {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--charcoal-light);
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.package li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ocean-pale);
+  border: 2px solid var(--ocean);
+}
+
+.package.featured li::before {
+  background: var(--ocean);
+}
+
+/* ── Process ── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.step {
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ocean-pale);
+  color: var(--ocean);
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.step h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+/* ── Comparison Table ── */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.comparison-table thead {
+  background: var(--charcoal);
+}
+
+.comparison-table th {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.comparison-table th:first-child {
+  text-align: left;
+  color: rgba(255,255,255,0.7);
+}
+
+.comparison-table th.featured-col {
+  background: var(--ocean);
+}
+
+.comparison-table td {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--charcoal-light);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.comparison-table td.featured-col {
+  background: rgba(26,107,122,0.03);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--sand);
+}
+
+.comparison-table tbody tr:hover td.featured-col {
+  background: rgba(26,107,122,0.06);
+}
+
+.check {
+  color: var(--ocean);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.dash {
+  color: var(--sand-dark);
+  font-size: 18px;
+}
+
+/* ── Advisory callout ── */
+.advisory-callout {
+  background: var(--sand);
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin-top: 48px;
+  border-left: 3px solid var(--ocean);
+}
+
+.advisory-callout h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.advisory-callout p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 64px 48px;
+  background: var(--charcoal);
+  color: var(--white);
+  margin-top: 64px;
+}
+
+.footer h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer p {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  max-width: 100%;
+}
+
+.footer a {
+  color: var(--coral-light);
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.footer a:hover {
+  color: var(--coral);
+}
+
+.footer-links {
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  margin: 0 12px;
+}
+
+/* ── All tiers include ── */
+.included-note {
+  text-align: center;
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--sand);
+  border-radius: 10px;
+}
+
+.included-note p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--slate);
+  max-width: 100%;
+  text-align: center;
+}
+
+.included-note strong {
+  color: var(--charcoal);
+}
+
+/* ── Print / PDF ── */
+@media print {
+  .hero { height: auto; min-height: 300px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { padding: 40px 0; }
+  .packages { gap: 16px; }
+  .package { page-break-inside: avoid; }
+  .comparison-table { page-break-inside: avoid; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero { height: auto; min-height: 360px; padding: 40px 28px; }
+  .hero h1 { font-size: 32px; }
+  .container { padding: 0 28px; }
+  .packages { grid-template-columns: 1fr; gap: 20px; }
+  .process-steps { grid-template-columns: 1fr; gap: 16px; }
+  .section h3 { font-size: 26px; }
+  .comparison-table { font-size: 12px; }
+  .comparison-table th, .comparison-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Social Media Management Proposal</div>
+    <h1>Ataraxis Grand & Spa</h1>
+    <h2>Fuvahmulah, Maldives</h2>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">The Opportunity</div>
+    <h3>Your story deserves to be told consistently</h3>
+    <p>Ataraxis sits on the only single-island atoll in the Maldives, with daily tiger shark encounters and a raw, anti-resort experience travellers are actively searching for. The content exists. What's missing is a consistent presence that turns it into bookings.</p>
+    <p>Below are three tiers of social media management, each including full strategy, implementation, and content edited from your existing content bank.</p>
+  </div>
+
+  <!-- Packages -->
+  <div class="section">
+    <div class="section-label">Packages</div>
+    <h3>Choose what fits</h3>
+
+    <div class="packages">
+      <!-- Essentials -->
+      <div class="package">
+        <div class="package-name">Essentials</div>
+        <div class="package-price">$1,000 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Full social strategy and implementation</li>
+          <li>Instagram + Facebook crossposting</li>
+          <li>2 feed posts per week</li>
+          <li>Content edited from your content bank (photo carousels, designed graphics, Reels)</li>
+          <li>Monthly performance snapshot</li>
+          <li>1-hour advisory session every 3 months</li>
+        </ul>
+      </div>
+
+      <!-- Growth -->
+      <div class="package featured">
+        <div class="package-name">Growth</div>
+        <div class="package-price">$1,250 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Everything in Essentials, plus:</li>
+          <li>3 feed posts per week</li>
+          <li>Stories 2x per week</li>
+          <li>Comment engagement</li>
+          <li>Competitor monitoring</li>
+          <li>Monthly performance snapshot</li>
+          <li>1-hour advisory session every 2 months</li>
+        </ul>
+      </div>
+
+      <!-- Full Service -->
+      <div class="package">
+        <div class="package-name">Full Service</div>
+        <div class="package-price">$1,500 <span>/month</span></div>
+        <div class="package-divider"></div>
+        <ul>
+          <li>Everything in Growth, plus:</li>
+          <li>4 feed posts per week</li>
+          <li>Stories 3x per week + reposting shared stories</li>
+          <li>Full comment and DM engagement</li>
+          <li>Your choice of YouTube Shorts or Pinterest</li>
+          <li>1-hour advisory session every month</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="included-note">
+      <p><strong>All tiers include</strong> full social strategy and implementation, content editing from your content bank (photo carousels, designed posts, Reels), Instagram + Facebook crossposting, and a monthly performance snapshot.</p>
+    </div>
+  </div>
+
+  <!-- Advisory -->
+  <div class="section">
+    <div class="section-label">Advisory Sessions</div>
+    <h3>Beyond just social media</h3>
+    <div class="advisory-callout">
+      <h4>1-Hour Advisory Sessions</h4>
+      <p>Advisory sessions go beyond social media. This is dedicated time to discuss brand direction, marketing strategy, and growth opportunities. Each session reviews performance data alongside your evolving goals to keep things moving in the right direction.</p>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="section">
+    <div class="section-label">How It Works</div>
+    <h3>Simple, hands-off process</h3>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Strategy</h4>
+        <p>I'll define your content pillars, posting schedule, and visual direction based on your brand and goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Create & Post</h4>
+        <p>Content is curated and edited from your content bank, then posted on schedule. You approve, or I handle it fully.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Review & Refine</h4>
+        <p>Advisory sessions review what's working, what's not, and where to adjust strategy based on real data.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Chart -->
+  <div class="section">
+    <div class="section-label">At a Glance</div>
+    <h3>Package comparison</h3>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Essentials</th>
+          <th class="featured-col">Growth</th>
+          <th>Full Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly investment</td>
+          <td>$1,000</td>
+          <td class="featured-col"><strong>$1,250</strong></td>
+          <td>$1,500</td>
+        </tr>
+        <tr>
+          <td>Platforms</td>
+          <td>IG + FB</td>
+          <td class="featured-col">IG + FB</td>
+          <td>IG + FB + Shorts/Pinterest</td>
+        </tr>
+        <tr>
+          <td>Feed posts per week</td>
+          <td>2</td>
+          <td class="featured-col"><strong>3</strong></td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Stories</td>
+          <td><span class="dash">&mdash;</span></td>
+          <td class="featured-col">2x/week</td>
+          <td>3x/week + reposts</td>
+        </tr>
+        <tr>
+          <td>Comment engagement</td>
+          <td><span class="dash">&mdash;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>DM engagement</td>
+          <td><span class="dash">&mdash;</span></td>
+          <td class="featured-col"><span class="dash">&mdash;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Competitor monitoring</td>
+          <td><span class="dash">&mdash;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Monthly performance snapshot</td>
+          <td><span class="check">&check;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+        <tr>
+          <td>Advisory session</td>
+          <td>Every 3 months</td>
+          <td class="featured-col">Every 2 months</td>
+          <td>Monthly</td>
+        </tr>
+        <tr>
+          <td>Content editing</td>
+          <td><span class="check">&check;</span></td>
+          <td class="featured-col"><span class="check">&check;</span></td>
+          <td><span class="check">&check;</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h3>Let's build something beautiful</h3>
+  <p>Ready to get started? Let's find the right fit for Ataraxis.</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/callie.rounds">@callie.rounds</a>
+    <a href="mailto:caliroundspartnerships@gmail.com">caliroundspartnerships@gmail.com</a>
+  </div>
+</div>
+
+</body>
+</html>
