@@ -40,8 +40,8 @@ body {
 /* ── Hero ── */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  height: 60vh;
+  min-height: 420px;
   background: url('island-life.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
@@ -56,10 +56,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(15,92,86,0.15) 0%,
-    rgba(15,92,86,0.05) 30%,
-    rgba(42,38,34,0.3) 70%,
-    rgba(42,38,34,0.85) 100%);
+    rgba(15,92,86,0.35) 0%,
+    rgba(15,92,86,0.2) 30%,
+    rgba(42,38,34,0.5) 60%,
+    rgba(42,38,34,0.9) 100%);
 }
 
 .hero::after {
@@ -84,8 +84,9 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 6px;
-  color: var(--driftwood-light);
+  color: rgba(255,255,255,0.85);
   margin-bottom: 24px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
 }
 
 .hero h1 {
@@ -624,7 +625,7 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .hero { height: 80vh; min-height: 480px; }
+  .hero { height: auto; min-height: 360px; }
   .hero h1 { font-size: 42px; }
   .hero-content { padding: 0 28px 80px; }
   .container, .container-wide { padding: 0 28px; }
@@ -645,10 +646,6 @@ body {
     <div class="hero-label">Social Media Management Proposal</div>
     <h1>Ataraxis Grand <em>&</em> Spa</h1>
     <h2>Fuvahmulah, Maldives</h2>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="line"></div>
   </div>
 </div>
 
