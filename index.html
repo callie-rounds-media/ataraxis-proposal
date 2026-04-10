@@ -256,19 +256,23 @@ body {
   padding: 32px 20px;
 }
 
-.step-number {
+.step-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   background: var(--ocean-pale);
-  color: var(--ocean);
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
   margin-bottom: 20px;
+}
+
+.step-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--ocean);
+  stroke-width: 1.5;
+  fill: none;
 }
 
 .step h4 {
@@ -567,17 +571,23 @@ body {
     <h3>Simple, hands-off process</h3>
     <div class="process-steps">
       <div class="step">
-        <div class="step-number">1</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="var(--ocean)" stroke="none" opacity="0.2"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/><circle cx="12" cy="12" r="1.5" fill="var(--ocean)" stroke="none"/></svg>
+        </div>
         <h4>Strategy</h4>
         <p>I'll define your content pillars, posting schedule, and visual direction based on your brand and goals.</p>
       </div>
       <div class="step">
-        <div class="step-number">2</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
         <h4>Create & Post</h4>
         <p>Content is curated and edited from your content bank, then posted on schedule. You approve, or I handle it fully.</p>
       </div>
       <div class="step">
-        <div class="step-number">3</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9"/><polyline points="21 3 21 9 15 9"/><path d="M21 9c-2.5-3.5-6-5-9.5-4.5"/><path d="M7 17l3-5 3 3 4-6"/></svg>
+        </div>
         <h4>Review & Refine</h4>
         <p>Advisory sessions review what's working, what's not, and where to adjust strategy based on real data.</p>
       </div>
